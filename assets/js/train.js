@@ -84,9 +84,9 @@ database.ref().on("child_added", function (childSnapshot) {
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDest),
-        $("<td>").text(trainFreq),
+        $("<td>").text("Every " + trainFreq + " Minutes"),
         $("<td>").text(formattedTime),
-        $("<td>").text(minsTillTrain),
+        $("<td>").text("Arrives in " + minsTillTrain + " Minutes"),
     );
     $("#train-table > tbody").append(newRow);
 });
