@@ -1,102 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="A simple train application for bootcamp">
-        <meta name="author" content="Daniel Goldman">
-        <title>Train Schedule</title>
-        <!-- Firebase -->
-        <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
-        <!-- Bootstrap core CSS -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles -->
-        <link href="assets/css/style.css" rel="stylesheet">
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Moment.js  -->
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <!-- Train JS App-->
-        <script src="assets/js/train.js"></script>
-    </head>
-    <body>
-        <div class="container">
-</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-database.js"></script>
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <title>Train App</title>
+</head>
+
+<body>
+    <div class="container">
         <div class="jumbotron text-center">
-            <h1 class="display-3">Train Schedule</h1> 
-            <p class="lead">A simple train scheduling component.</p>
+            <h1 class="display-4 heading">Trains</h1>
+            <p class="heading">Train Departures</p>
+            <h3 class="check-time"></h3>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2>Train Schedule</h2>
-                    <hr/> 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Current Train Schedule
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-dark" id="train-table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <table class="table table-hover">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Train Name</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Frequency (Min)</th>
-                                <th scope="col">Next Arrival</th>
-                                <th scope="col">Minutes Away</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Acela</th>
-                                <td>Manhattan</td>
-                                <td>25</td>
-                                <td>3:00 PM</td>
-                                <td>25</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Carolinian / Piedmont</th>
-                                <td>Charlotte</td>
-                                <td>25</td>
-                                <td>3:00 PM</td>
-                                <td>25</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Pacific Surfliner</th>
-                                <td>San Diego</td>
-                                <td>25</td>
-                                <td>3:00 PM</td>
-                                <td>25</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <h2>Add Train</h2>
-                    <hr/> 
-                </div>
-            </div>
-            <form>
-                <div class="form-group">
-                    <label for="text">Train Name</label>
-                    <input type="text" class="form-control" id="trainNameInput" placeholder="Train Name">
-                </div>
-                <div class="form-group">
-                    <label for="text">Train Destination</label>
-                    <input type="text" class="form-control" id="trainDestinationInput" placeholder="Train Destination">
-                </div>
-                <div class="form-group">
-                    <label for="time">Train Departure</label>
-                    <input type="time" class="form-control" id="firstTrainDepartureInput" placeholder="14:00">
-                </div>
-                <div class="form-group">
-                    <label for="text">Train Frequency (In Minutes)</label>
-                    <input type="text" class="form-control" id="trainFrequencyInput" placeholder="14">
-                </div>
-                <button type="submit" class="btn btn-outline-primary" id="addTrainBtn">Submit Train</button>
-            </form>
         </div>
-    </body>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Add Train
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="trainName">Train Name</label>
+                        <input type="text" class="form-control" id="train-name-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="trainTime">First Train Time</label>
+                        <input type="time" class="form-control" id="firstArrive-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency">Frequency (min)</label>
+                        <input type="number" class="form-control" id="frequency-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="add-train-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- javascript -->
+    <script type="text/javascript" src="assets/js/train.js"></script>
+</body>
+
 </html>
