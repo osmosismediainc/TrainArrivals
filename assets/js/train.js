@@ -21,19 +21,18 @@ $("#add-train-btn").on("click", function (event) {
     // NEED WAY TO CAPTURE 24 HR TIME OR CONVERT TIME TO 24 HR
     var trainName = $("#train-name-input").val().trim();
     var trainDest = $("#destination-input").val().trim();
-    // THIS IS PROBABLY WRONG
     var trainFirst = moment($("#firstArrive-input").val().trim(), "HH:mm").format("");
     var trainFreq = $("#frequency-input").val().trim();
-    // temp object for holding input data
+    // local object for inputs
     var newTrain = {
         name: trainName,
         destination: trainDest,
         firstArrive: trainFirst,
         frequency: trainFreq
     };
-    // uploads train data to db
+    // pushes train info to firebase
     database.ref().push(newTrain);
-    // logs to console
+    // console log
     console.log(newTrain.name);
     console.log(newTrain.destination);
     console.log(newTrain.firstArrive);
@@ -66,7 +65,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var currentTime = moment();
     console.log("Current Time: " + moment(currentTime).format('hh:mm A'));
     // current time in jumbotron
-    $(".check-time").text("Current Time: " + moment(currentTime).format('hh:mm A'));
+    $(".currentTime").text("Current Time: " + moment(currentTime).format('hh:mm A'));
     // difference between times
     var diffTime = moment().diff(moment(trainFirstConverted), "minutes");
     console.log("Difference in time: " + diffTime);

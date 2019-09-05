@@ -26,13 +26,14 @@
         <div class="jumbotron text-center">
             <h1 class="display-4 heading">Trains</h1>
             <p class="heading">Train Departures</p>
-            <h3 class="check-time"></h3>
+            <h3 class="currentTime"></h3>
         </div>
         <div class="row">
             <div class="col-md-12">
 
-                        <h4>Current Train Schedule</h4>
-                        <hr />
+                <div class="alert alert-primary" role="alert">
+                    <h4>Current Train Schedule</h4>
+                  </div>
                         <table class="table table-dark" id="train-table">
                             <thead class="thead-light">
                                 <tr>
@@ -46,16 +47,15 @@
                             <tbody>
                             </tbody>
                         </table>
-                        <hr />
+                        
 
         </div>
     </div>
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                Add Train
-            </div>
-            <div class="card-body">
+    <div class="mt-5">
+        <div class="alert alert-primary" role="alert">
+            <h4>Add Train</h4>
+          </div>
+                <hr />
                 <form>
                     <div class="form-group">
                         <label for="trainName">Train Name</label>
@@ -75,8 +75,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary" id="add-train-btn">Submit</button>
                 </form>
-            </div>
-        </div>
     </div>
     <!-- javascript -->
     <script type="text/javascript" src="assets/js/train.js"></script>
