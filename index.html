@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="A simple train application for bootcamp">
+        <meta name="author" content="Daniel Goldman">
+        <title>Train Schedule</title>
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom styles -->
+        <link href="assets/css/style.css" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Moment.js  -->
+        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+        <!-- Train JS App-->
+        <script src="assets/js/train.js"></script>
+    </head>
+    <body>
+        <div class="container">
+</div>
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Train Schedule</h1> 
+            <p class="lead">A simple train scheduling component.</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Train Schedule</h2>
+                    <hr/> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Frequency (Min)</th>
+                                <th scope="col">Next Arrival</th>
+                                <th scope="col">Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Acela</th>
+                                <td>Manhattan</td>
+                                <td>25</td>
+                                <td>3:00 PM</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Carolinian / Piedmont</th>
+                                <td>Charlotte</td>
+                                <td>25</td>
+                                <td>3:00 PM</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pacific Surfliner</th>
+                                <td>San Diego</td>
+                                <td>25</td>
+                                <td>3:00 PM</td>
+                                <td>25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Add Train</h2>
+                    <hr/> 
+                </div>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="text">Train Name</label>
+                    <input type="text" class="form-control" id="trainNameInput" placeholder="Train Name">
+                </div>
+                <div class="form-group">
+                    <label for="text">Train Destination</label>
+                    <input type="text" class="form-control" id="trainDestinationInput" placeholder="Train Destination">
+                </div>
+                <div class="form-group">
+                    <label for="time">Train Departure</label>
+                    <input type="time" class="form-control" id="firstTrainDepartureInput" placeholder="14:00">
+                </div>
+                <div class="form-group">
+                    <label for="text">Train Frequency (In Minutes)</label>
+                    <input type="text" class="form-control" id="trainFrequencyInput" placeholder="14">
+                </div>
+                <button type="submit" class="btn btn-outline-primary" id="addTrainBtn">Submit Train</button>
+            </form>
+        </div>
+    </body>
+</html>
